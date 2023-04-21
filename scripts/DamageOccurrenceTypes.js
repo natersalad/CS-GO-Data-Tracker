@@ -15,7 +15,7 @@ export class DamageOccurrenceEntries {
     }
 
     outputSortData(sortBy) {
-        //todo
+        //todo: use methods to determine performance
         return {
             sortBy: sortBy,
             sortedList: "some list soon",
