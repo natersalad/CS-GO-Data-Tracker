@@ -4,20 +4,21 @@ const csv = fs.readFileSync('data/newdata.csv', 'utf-8');
 
 const rows = csv.split('\n').slice(1);
 
-//store a specifc column for now ill just do col 17 (weapon)
-const weapons = [];
-const damage = [];
-const armorDamage = [];
+const weaponStats = [];
 
 rows.forEach(row => {
     const columns = row.split(',');
-    weapons.push(columns[16]);
-    damage.push(columns[11]);
-    armorDamage.push(columns[12]);
+    const weapon = columns[16];
+    //we probably want the damage as ints so we can sort easier.
+    const hpDamage = parseInt(columns[11]);
+    const armorDamage = parseInt(columns[12]);
+    const totalDamage = hpDamage + armorDamage;
+    //we can add onto this, but I feel its smart to combine them all so we can access what weapon is associated with a sorted stat.
+    //lowkey makes sense to make a Weapon object with the damage and such being parameters, but IDK how to do that in javascript :P.
+    weaponStats.push([weapon, hpDamage, armorDamage, totalDamage]);
 
   });
-
-console.log(weapons);
-console.log(damage);
-console.log(armorDamage);
+  //this is here just to test, we can delete this later.
+  console.log(weaponStats);
+  
   
