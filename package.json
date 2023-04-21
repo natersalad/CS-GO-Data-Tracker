@@ -1,0 +1,20 @@
+{
+  "name": "dsa-project-3",
+  "version": "1.0.0",
+  "description": "Csgo Weapon Stat Sorter",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {   
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddr4x/DSA-Project-3.git"
+  },
+  "author": "Nathan Wand, Shawn Chen, Nicolas Prothero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddr4x/DSA-Project-3/issues"
+  },
+  "homepage": "https://github.com/ddr4x/DSA-Project-3#readme"
+}
