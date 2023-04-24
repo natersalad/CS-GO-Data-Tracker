@@ -138,6 +138,37 @@ function heapSortTester(arr) {
     return arr;
 }
 
+function buildMaxHeap(arr) {
+    for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
+        maxHeapify(arr, arr.length, i);
+    }
+}
+
+function maxHeapify(arr, heapSize, i) {
+    var left = i * 2 + 1;
+    var right = i * 2 + 2;
+    var largest = i;
+    if (left < heapSize && arr[left] > arr[largest]) {
+        largest = left;
+    }
+    if (right < heapSize && arr[right] > arr[largest]) {
+        largest = right;
+    }
+    if (largest !== i) {
+        swap(arr, i, largest);
+        maxHeapify(arr, heapSize, largest);
+    }
+}
+
+function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+var sortedArray6 = heapSortTester([1, 3, 2, 0, 5, 6, -1, -3, -4, 5, 15, 59, -100]);
+console.log(sortedArray6);
+
 
     
 
