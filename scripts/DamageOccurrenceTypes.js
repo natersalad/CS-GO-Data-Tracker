@@ -1,4 +1,4 @@
-import { bubbleSort } from "./sort";
+import { bubbleSort } from "./sort.js";
 
 //made a weapon class to hold all parameters about specific weapons (we can add onto this)
 export default class DamageOccurrence {
@@ -18,9 +18,7 @@ export class DamageOccurrenceEntries {
 
     outputSortData(sortBy) {
         let start = performance.now();
-        let intialMemoryUsage = performance.memory.usedJSHeapSize;
         let sortedList = bubbleSort(this.damageOccurrenceEntries, sortBy)
-        let bubbleMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
         let bubbleDuration = performance.now() - start;
 
         // start = performance.now();
@@ -56,9 +54,8 @@ export class DamageOccurrenceEntries {
         return {
             sortBy: sortBy,
             sortedList: sortedList,
-            bubbleSortData: {
+            bubbleSortStats: {
                 duration: bubbleDuration,
-                memoryUsage: bubbleMemoryUsage
             },
             // mergeSortData: {
             //     duration: "swoase",
