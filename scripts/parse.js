@@ -20,5 +20,7 @@ export default damageOccurrenceEntries;
 
 //this is here just to test, we can delete this later.
 console.log(damageOccurrenceEntries.outputSortData("weaponName"));
+// print size of array
+console.log(damageOccurrences.length);
   
   
