@@ -1,7 +1,7 @@
 import DamageOccurrence, { DamageOccurrenceEntries } from './DamageOccurrenceTypes.js';
 import * as fs from 'fs';
 
-const csv = fs.readFileSync('data/newdata.csv', 'utf-8');
+const csv = fs.readFileSync('data/testdata.csv', 'utf-8');
 const rows = csv.split('\n').slice(1);
 const damageOccurrences = [];
 
@@ -16,11 +16,9 @@ rows.forEach(row => {
 
 const damageOccurrenceEntries = new DamageOccurrenceEntries(damageOccurrences);
 
-export default damageOccurrenceEntries;
-
 //this is here just to test, we can delete this later.
-console.log(damageOccurrenceEntries.outputSortData("weaponName"));
+console.log(damageOccurrenceEntries.outputSortData("totalDamage"));
 // print size of array
-console.log(damageOccurrences.length);
+
   
   
