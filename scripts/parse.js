@@ -10,14 +10,14 @@ rows.forEach(row => {
     const name = columns[16];
     const hpDamage = parseInt(columns[11]);
     const armorDamage = parseInt(columns[12]);
-    let damageOccurrence = new DamageOccurrence(name, hpDamage, armorDamage)
+    let damageOccurrence = new DamageOccurrence(name, hpDamage, armorDamage);
     damageOccurrences.push(damageOccurrence);
 });
 
 const damageOccurrenceEntries = new DamageOccurrenceEntries(damageOccurrences);
 
 //this is here just to test, we can delete this later.
-console.log(damageOccurrenceEntries.outputSortData("totalDamage"));
+console.log(damageOccurrenceEntries.outputSortData("weaponName"));
 // print size of array
 
   

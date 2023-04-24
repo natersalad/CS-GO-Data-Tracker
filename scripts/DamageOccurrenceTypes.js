@@ -1,4 +1,6 @@
-import { bubbleSort } from "./sort.js";
+//import all the sorting algorithms
+import* as sort from "./sort.js";
+
 
 //made a weapon class to hold all parameters about specific weapons (we can add onto this)
 export default class DamageOccurrence {
@@ -18,38 +20,38 @@ export class DamageOccurrenceEntries {
 
     outputSortData(sortBy) {
         let start = performance.now();
-        let sortedList = bubbleSort(this.damageOccurrenceEntries, sortBy)
+        let sortedList = sort.bubbleSort(this.damageOccurrenceEntries, sortBy);
         let bubbleDuration = performance.now() - start;
 
-        // start = performance.now();
-        // intialMemoryUsage = performance.memory.usedJSHeapSize;
-        // mergeSort(this.damageOccurrenceEntries, sortBy)
-        // let mergeMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
-        // let mergeDuration = performance.now() - start;
+        start = performance.now();
+        //intialMemoryUsage = performance.memory.usedJSHeapSize;
+        sortedList = sort.mergeSort(this.damageOccurrenceEntries, sortBy);
+        //let mergeMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
+        let mergeDuration = performance.now() - start;
 
-        // start = performance.now();
+        start = performance.now();
         // intialMemoryUsage = performance.memory.usedJSHeapSize;
-        // insertionSort(this.damageOccurrenceEntries, sortBy)
+         sortedList = sort.insertionSort(this.damageOccurrenceEntries, sortBy);
         // let insertionMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
-        // let insertionDuration = performance.now() - start;
+        let insertionDuration = performance.now() - start;
 
-        // start = performance.now();
+         start = performance.now();
         // intialMemoryUsage = performance.memory.usedJSHeapSize;
-        // selectionSort(this.damageOccurrenceEntries, sortBy)
+         sortedList = sort.selectionSort(this.damageOccurrenceEntries, sortBy);
         // let selectionMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
-        // let selectionDuration = performance.now() - start;
+         let selectionDuration = performance.now() - start;
 
-        // start = performance.now();
+         start = performance.now();
         // intialMemoryUsage = performance.memory.usedJSHeapSize;
-        // quickSort(this.damageOccurrenceEntries, sortBy)
+        sortedList = sort.quickSort(this.damageOccurrenceEntries, sortBy);
         // let quickMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
-        // let quickDuration = performance.now() - start;
+         let quickDuration = performance.now() - start;
 
-        // start = performance.now();
+         start = performance.now();
         // intialMemoryUsage = performance.memory.usedJSHeapSize;
-        // heapSort(this.damageOccurrenceEntries, sortBy)
+         sortedList = sort.heapSort(this.damageOccurrenceEntries, sortBy)
         // let heapMemoryUsage = performance.memory.usedJSHeapSize - intialMemoryUsage;
-        // let heapDuration = performance.now() - start;
+         let heapDuration = performance.now() - start;
 
         return {
             sortBy: sortBy,
@@ -57,26 +59,25 @@ export class DamageOccurrenceEntries {
             bubbleSortStats: {
                 duration: bubbleDuration,
             },
-            // mergeSortData: {
-            //     duration: "swoase",
+            mergeSortData: {
+                duration: mergeDuration,
+            },
+             insertSortData: {
+                 duration: insertionDuration,
             //     memoryUsage: "swoasememory"
-            // },
-            // insertSortData: {
-            //     duration: "swoase",
+             },
+             selectionSortData: {
+                 duration: selectionDuration,
             //     memoryUsage: "swoasememory"
-            // },
-            // selectionSortData: {
-            //     duration: "swoase",
+             },
+             quickSortData: {
+                 duration: quickDuration,
             //     memoryUsage: "swoasememory"
-            // },
-            // quickSortData: {
-            //     duration: "swoase",
+             },
+             heapSortData: {
+                 duration: heapDuration,
             //     memoryUsage: "swoasememory"
-            // },
-            // heapSortData: {
-            //     duration: "swoase",
-            //     memoryUsage: "swoasememory"
-            // },
+             },
             // bucketSortData: {
             //     duration: "swoase",
             //     memoryUsage: "swoasememory"
