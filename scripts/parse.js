@@ -16,6 +16,8 @@ rows.forEach(row => {
 
 const damageOccurrenceEntries = new DamageOccurrenceEntries(damageOccurrences);
 
+export default damageOccurrenceEntries;
+
 //this is here just to test, we can delete this later.
 console.log(damageOccurrenceEntries.outputSortData("weaponName"));
   
