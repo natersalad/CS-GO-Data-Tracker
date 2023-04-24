@@ -1,3 +1,5 @@
+// array of damage occurences, each occurence is an object with a weapon name, hp damage, armor damage
+
 // bubble sort function
 function bubbleSort(arr, sortBy) {
     let len = arr.length;
