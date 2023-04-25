@@ -81,23 +81,38 @@ export function selectionSort(arr, sortBy) {
 }
 
 // set pivot as first element
-export function quickSort(arr, sortBy) {
-    let arrTemp = [...arr];
-    if (arrTemp.length <= 1) {
-        return arrTemp;
-    }
-    // select random pivot
-    var pivot = arrTemp[Math.floor(Math.random() * arrTemp.length)];
-    var left = [];
-    var right = [];
-    for (var i = 0; i < arrTemp.length - 1; i++) {
-        if (arrTemp[i][sortBy] < pivot[sortBy]) {
-            left.push(arrTemp[i]);
-        } else {
-            right.push(arrTemp[i]);
+export function partition(arr, low, high, sortBy) {
+    let pivot = arr[low][sortBy];
+    let up = low;
+    let down = high;
+
+    while (up < down) {
+        for (var j = up; j < high; j++){
+            if(arr[up][sortBy] > pivot){
+                break;
+            }
+            up++;
+        }
+        for (var k = high; k > low; k--){
+            if(arr[down][sortBy] < pivot){
+                break;
+            }
+            down--;
+        }
+        if (up < down) {
+            swap(arr, up, down);
         }
     }
-    return [...quickSort(left, sortBy), pivot, ...quickSort(right, sortBy)];
+    swap(arr, low, down);
+    return down;
+}
+
+export function quickSort(arr, low, high, sortBy) {
+    if (low < high) {
+        let pivot = partition(arr, low, high, sortBy);
+        quickSort(arr, low, pivot - 1, sortBy);
+        quickSort(arr, pivot + 1, high, sortBy);
+    }
 }
 
 // represent heap as array
