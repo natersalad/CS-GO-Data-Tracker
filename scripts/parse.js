@@ -1,6 +1,6 @@
 import DamageOccurrence, { DamageOccurrenceEntries } from './DamageOccurrenceTypes.js';
 import * as fs from 'fs';
-let map; //nic bind this as de_dust2 or de_inferno 
+let map = "de_dust2"; //nic bind this as de_dust2 or de_inferno 
 const csv = fs.readFileSync(`data/${map}.csv`, 'utf-8');
 const rows = csv.split('\n').slice(1);
 const damageOccurrences = [];
