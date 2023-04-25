@@ -19,7 +19,7 @@ const damageOccurrenceEntries = new DamageOccurrenceEntries(damageOccurrences);
 
 
 //this is here just to test, we can delete this later.
-console.log(damageOccurrenceEntries.outputSortData("weaponName"));
+console.log(damageOccurrenceEntries.outputSortData("weaponName", "insertionSort", "quickSort"));
 // print size of array
 
 
