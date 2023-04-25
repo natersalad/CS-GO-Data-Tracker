@@ -101,20 +101,21 @@ export function partition(arr, low, high, sortBy) {
         }
         if (up < down) {
             swap(arr, up, down);
+
         }
     }
     swap(arr, low, down);
+
     return down;
 }
 
 export function quickSort(arr, low, high, sortBy) {
-    let arrTemp = [...arr];
     if (low < high) {
         let pivot = partition(arr, low, high, sortBy);
         quickSort(arr, low, pivot - 1, sortBy);
         quickSort(arr, pivot + 1, high, sortBy);
     }
-    return arrTemp;
+    return arr;
 }
 
 // represent heap as array

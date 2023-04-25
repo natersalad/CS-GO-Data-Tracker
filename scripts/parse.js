@@ -1,6 +1,6 @@
 import DamageOccurrence, { DamageOccurrenceEntries } from './DamageOccurrenceTypes.js';
 import * as fs from 'fs';
-let map = "de_dust2"; //nic bind this as de_dust2 or de_inferno 
+let map = "de_mirage"; //nic bind this as de_dust2 or de_inferno 
 const csv = fs.readFileSync(`data/${map}.csv`, 'utf-8');
 const rows = csv.split('\n').slice(1);
 const damageOccurrences = [];
@@ -19,7 +19,7 @@ const damageOccurrenceEntries = new DamageOccurrenceEntries(damageOccurrences);
 
 
 //this is here just to test, we can delete this later.
-console.log(damageOccurrenceEntries.outputSortData("weaponName", "insertionSort", "quickSort"));
+console.log(damageOccurrenceEntries.outputSortData("weaponName", "insertionSort", "mergeSort"));
 // print size of array
 
 

@@ -62,8 +62,10 @@ export class DamageOccurrenceEntries {
             }
         }
         if (sort1 === "quickSort" || sort2 === "quickSort") {
+            let arrTemp = [...this.damageOccurrenceEntries];
             start = performance.now();
-            sortedList = sort.quickSort(this.damageOccurrenceEntries, sortBy);
+            // pass in low and high
+            sortedList = sort.quickSort(arrTemp, 0, arrTemp.length - 1, sortBy);
             if(sort1 === "quickSort") {
                 sort1Duration = performance.now() - start;
             }
