@@ -24,6 +24,7 @@ export class DamageOccurrenceEntries {
         if (sort1 === "bubbleSort" || sort2 === "bubbleSort") {
             start = performance.now();
             sortedList = sort.bubbleSort(this.damageOccurrenceEntries, sortBy);
+            //console.log("here");
             if(sort1 === "bubbleSort") {
                 sort1Duration = performance.now() - start;
             }
@@ -32,8 +33,9 @@ export class DamageOccurrenceEntries {
             }
         }
         if (sort1 === "mergeSort" || sort2 === "mergeSort") {
+            let arrTemp = [...this.damageOccurrenceEntries];
             start = performance.now();
-            sortedList = sort.mergeSort(this.damageOccurrenceEntries, sortBy);
+            sortedList = sort.mergeSort(arrTemp, 0, arrTemp.length-1,  sortBy);
             if(sort1 === "mergeSort") {
                 sort1Duration = performance.now() - start;
             }
@@ -74,8 +76,9 @@ export class DamageOccurrenceEntries {
             }
         }
         if (sort1 === "heapSort" || sort2 === "heapSort") {
+            let arrTemp = [...this.damageOccurrenceEntries];
             start = performance.now();
-            sortedList = sort.heapSort(this.damageOccurrenceEntries, sortBy)
+            sortedList = sort.heapSort(arrTemp, sortBy)
             if(sort1 === "heapSort") {
                 sort1Duration = performance.now() - start;
             }

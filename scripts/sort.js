@@ -20,34 +20,57 @@ export function bubbleSort(arr, sortBy) {
 
 
 
-export function mergeSort(arr, sortBy) {
-    let arrTemp = [...arr];
-    if (arr.length === 1) {
-        return arr;
+
+export function mergeSort(arr, left, right, sortBy) {
+    if (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        mergeSort(arr, left, mid, sortBy);
+        mergeSort(arr, mid + 1, right, sortBy);
+        merge(arr, left, mid, right, sortBy);
     }
-    const middle = Math.floor(arrTemp.length / 2);
-    const left = arrTemp.slice(0, middle);
-    const right = arrTemp.slice(middle);
-    return merge(
-        mergeSort(left, sortBy),
-        mergeSort(right, sortBy)
-    );
+    return arr;
 }
 
-export function merge(left, right, sortBy) {   
-    let result = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
-    while (leftIndex < left.length && rightIndex < right.length) {
-        if (left[leftIndex][sortBy] < right[rightIndex][sortBy]) {
-            result.push(left[leftIndex]);
-            leftIndex++;
-        } else {
-            result.push(right[rightIndex]);
-            rightIndex++;
+export function merge(arr, left, mid, right, sortBy) {
+    let n1 = mid - left + 1;
+    let n2 = right - mid;
+    let X = [];
+    let Y = [];
+
+    for (var i = 0; i < n1; i++) {
+        X[i] = arr[left + i];
+    }
+    for (var j = 0; j < n2; j++) {
+        Y[j] = arr[mid + 1 + j];
+    }
+
+     i = 0;
+     j = 0;
+    let k = left;
+
+    while (i < n1 && j < n2) {
+        if (X[i][sortBy] <= Y[j][sortBy]) {
+            arr[k] = X[i];
+            i++;
         }
-    }       
-    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+        else {
+            arr[k] = Y[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = X[i];
+        i++;
+        k++;
+    }
+    while(j < n2) {
+        arr[k] = Y[j];
+        j++;
+        k++;
+    }
+
 }
 
 export function insertionSort(arr, sortBy) {
