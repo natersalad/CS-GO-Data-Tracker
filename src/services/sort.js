@@ -20,34 +20,57 @@ export function bubbleSort(arr, sortBy) {
 
 
 
-export function mergeSort(arr, sortBy) {
-    let arrTemp = [...arr];
-    if (arr.length === 1) {
-        return arr;
+
+export function mergeSort(arr, left, right, sortBy) {
+    if (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        mergeSort(arr, left, mid, sortBy);
+        mergeSort(arr, mid + 1, right, sortBy);
+        merge(arr, left, mid, right, sortBy);
     }
-    const middle = Math.floor(arrTemp.length / 2);
-    const left = arrTemp.slice(0, middle);
-    const right = arrTemp.slice(middle);
-    return merge(
-        mergeSort(left, sortBy),
-        mergeSort(right, sortBy)
-    );
+    return arr;
 }
 
-export function merge(left, right, sortBy) {   
-    let result = [];
-    let leftIndex = 0;
-    let rightIndex = 0;
-    while (leftIndex < left.length && rightIndex < right.length) {
-        if (left[leftIndex][sortBy] < right[rightIndex][sortBy]) {
-            result.push(left[leftIndex]);
-            leftIndex++;
-        } else {
-            result.push(right[rightIndex]);
-            rightIndex++;
+export function merge(arr, left, mid, right, sortBy) {
+    let n1 = mid - left + 1;
+    let n2 = right - mid;
+    let X = [];
+    let Y = [];
+
+    for (var i = 0; i < n1; i++) {
+        X[i] = arr[left + i];
+    }
+    for (var j = 0; j < n2; j++) {
+        Y[j] = arr[mid + 1 + j];
+    }
+
+     i = 0;
+     j = 0;
+    let k = left;
+
+    while (i < n1 && j < n2) {
+        if (X[i][sortBy] <= Y[j][sortBy]) {
+            arr[k] = X[i];
+            i++;
         }
-    }       
-    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+        else {
+            arr[k] = Y[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = X[i];
+        i++;
+        k++;
+    }
+    while(j < n2) {
+        arr[k] = Y[j];
+        j++;
+        k++;
+    }
+
 }
 
 export function insertionSort(arr, sortBy) {
@@ -80,6 +103,7 @@ export function selectionSort(arr, sortBy) {
     return arrTemp;
 }
 
+// referenced from Aman Lecture Slides
 // set pivot as first element
 export function partition(arr, low, high, sortBy) {
     let pivot = arr[low][sortBy];
@@ -160,6 +184,22 @@ export function swap(arr, i, j) {
     arr[j] = temp;
 }
 
+
+export function shellSort(arr, sortBy) {
+    let arrTemp = [...arr];
+    let len = arrTemp.length;
+    for (var gap = Math.floor(len / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (var i = gap; i < len; i++) {
+            var temp = arrTemp[i];
+            var j;
+            for (j = i; j >= gap && arrTemp[j - gap][sortBy] > temp[sortBy]; j -= gap) {
+                arrTemp[j] = arrTemp[j - gap];
+            }
+            arrTemp[j] = temp;
+        }
+    }
+    return arrTemp;
+}
 
 
 

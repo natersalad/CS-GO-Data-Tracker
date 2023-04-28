@@ -1,6 +1,7 @@
 //import all the sorting algorithms
 import * as sort from "../services/sort.js";
 
+
 //made a weapon class to hold all parameters about specific weapons (we can add onto this)
 export class DamageOccurrence {
     constructor(weaponName, hpDamage, armorDamage, hitbox) {
@@ -23,6 +24,7 @@ export class DamageOccurrenceEntries {
         if (sort1 === "bubbleSort" || sort2 === "bubbleSort") {
             start = performance.now();
             sortedList = sort.bubbleSort(this.damageOccurrenceEntries, sortBy);
+            //console.log("here");
             if(sort1 === "bubbleSort") {
                 sort1Duration = performance.now() - start;
             }
@@ -31,8 +33,9 @@ export class DamageOccurrenceEntries {
             }
         }
         if (sort1 === "mergeSort" || sort2 === "mergeSort") {
+            let arrTemp = [...this.damageOccurrenceEntries];
             start = performance.now();
-            sortedList = sort.mergeSort(this.damageOccurrenceEntries, sortBy);
+            sortedList = sort.mergeSort(arrTemp, 0, arrTemp.length-1,  sortBy);
             if(sort1 === "mergeSort") {
                 sort1Duration = performance.now() - start;
             }
@@ -73,9 +76,21 @@ export class DamageOccurrenceEntries {
             }
         }
         if (sort1 === "heapSort" || sort2 === "heapSort") {
+            let arrTemp = [...this.damageOccurrenceEntries];
             start = performance.now();
-            sortedList = sort.heapSort(this.damageOccurrenceEntries, sortBy)
+            sortedList = sort.heapSort(arrTemp, sortBy)
             if(sort1 === "heapSort") {
+                sort1Duration = performance.now() - start;
+            }
+            else {
+                sort2Duration = performance.now() - start;
+            }
+        }
+
+        if (sort1 === "shellSort" || sort2 === "shellSort") {
+            start = performance.now();
+            sortedList = sort.shellSort(this.damageOccurrenceEntries, sortBy)
+            if(sort1 === "shellSort") {
                 sort1Duration = performance.now() - start;
             }
             else {
