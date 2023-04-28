@@ -84,6 +84,17 @@ export class DamageOccurrenceEntries {
             }
         }
 
+        if (sort1 === "shellSort" || sort2 === "shellSort") {
+            start = performance.now();
+            sortedList = sort.shellSort(this.damageOccurrenceEntries, sortBy)
+            if(sort1 === "shellSort") {
+                sort1Duration = performance.now() - start;
+            }
+            else {
+                sort2Duration = performance.now() - start;
+            }
+        }
+
         return {
             sortedList: sortedList,
             sortBy: sortBy,

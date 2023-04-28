@@ -80,6 +80,7 @@ export function selectionSort(arr, sortBy) {
     return arrTemp;
 }
 
+// referenced from Aman Lecture Slides
 // set pivot as first element
 export function partition(arr, low, high, sortBy) {
     let pivot = arr[low][sortBy];
@@ -160,6 +161,22 @@ export function swap(arr, i, j) {
     arr[j] = temp;
 }
 
+
+export function shellSort(arr, sortBy) {
+    let arrTemp = [...arr];
+    let len = arrTemp.length;
+    for (var gap = Math.floor(len / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (var i = gap; i < len; i++) {
+            var temp = arrTemp[i];
+            var j;
+            for (j = i; j >= gap && arrTemp[j - gap][sortBy] > temp[sortBy]; j -= gap) {
+                arrTemp[j] = arrTemp[j - gap];
+            }
+            arrTemp[j] = temp;
+        }
+    }
+    return arrTemp;
+}
 
 
 
