@@ -89,8 +89,7 @@ function pickSort2(str) {
 
 function counterstrikeGO() {
     //changes the image to the str
-    //document.getElementById("gunimg").src = str;
-
+    
     fetch('http://127.0.0.1:8080/outputdata', {
         method: 'POST',
         headers: {
@@ -110,6 +109,9 @@ function counterstrikeGO() {
         .then(response => {
             console.log(response);
 
+            
+
+
             const selectedDamageOccurrance = hiLoValue ? response.sortedList[response.sortedList.length - 1] : response.sortedList[0]
             // displays what if it is sorted by highest or lowest?
             document.getElementById("highorLow").innerHTML = hiLoValue ? "HIGHEST" : "LOWEST";
@@ -119,6 +121,7 @@ function counterstrikeGO() {
             document.getElementById("dataText").innerHTML = sortedBy;
 
             // displays the gun name that goes with the data shown
+            document.getElementById("gunimg").src = `img/guns/${selectedDamageOccurrance.weaponName}.webp`;
             document.getElementById("gunName").innerHTML = selectedDamageOccurrance.weaponName;
 
             // displays what sorts were picked
