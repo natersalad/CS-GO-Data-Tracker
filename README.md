@@ -1,3 +1,6 @@
+
+![csgoThumbnail](https://github.com/natersalad/CS-GO-Data-Tracker/assets/4565342/9f6c6559-aa1d-4be6-9b66-fa427183c0d0)
+
 # DSA-Project-3
 Team Name: Bit Smashers
 Team Members: Shuqing Chen, Nathan Wand, Nicolas Prothero
