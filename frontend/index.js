@@ -90,7 +90,7 @@ function pickSort2(str) {
 function counterstrikeGO() {
     //changes the image to the str
     
-    fetch('http://127.0.0.1:8080/outputdata', {
+    fetch('http://localhost:8080/outputdata', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
